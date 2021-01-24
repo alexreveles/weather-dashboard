@@ -1,0 +1,26 @@
+:root {
+    --primary: #fef9f9;
+     --secondary: #9caea9;
+    --tertiary: #788585;
+    --light-dark: #6f6866;
+    --dark: #121010;  
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+background-color: var(--primary);
+}
+
+h1 {
+    text-align: center;
+    color:black;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.25;
+    font-family: "IBM Plex Sans", sans-serif;
+    
+}
