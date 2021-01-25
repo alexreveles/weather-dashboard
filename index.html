@@ -4,23 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <title>Weather Dashboard</title>
 </head>
-<body>
+<body class="flex-column min-100-vh">
     <header class="hero">
         <h1 class="title">Weather Dashboard</h1>
     </header>
 
-    <main class="flex-row justify-space-between">
-        <div>
+    <div class="container">
 
-        </div>
+        <main class="flex row justify-space-between">
+            <div class="col-12 col-md-4">
+
+                <div class="card">
+                    <h2>Search for a City</h2>
+                    <div id="user-form" class="card-body">
+                        <label class="form-label" for="searchcity"></label>
+                        <input name="searchcity" id="searchCity" type="text" autofocus="true" class="form-input">
+                        <button onclick="getCityWeather()" id="save-city" class="btn-search"><i class="fa fa-search"></i></button>
+                        
+                    </div>
+                </div>
+
+                <div id="card">
+                    <div id="city-buttons" class="card-body">
+                    <ul id="listCities">
+                        <li class="city-item">cities</li>
+                    </ul>
+                    </div>
+                </div>
+            
+            </div>
+                
+            <div id="col-12">
+                
+                    <!--- top right-->
+                    <div class="flex row justify-space-between">
+                        <div id="currentWeather" class="col">
+
+                        </div>
+                       <!-- COMING FROM UV INDEX API-->
+                    </div>
+
+                    <!--- bottom right-->
+                    <div id="fiveDayForecast" class="flex row justify-space-between">
+                         <!-- COMING FROM FIVE DAY FORECAST API -->
+                    </div>
+                
+            </div>
 
 
-    </main>
+            
 
+          
+        </main>
 
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="assets/script.js"></script> 
+    
 </body>
-<script src="assets/script.js"></script>
+<!-- <footer>
+    &copy;2021 by Alex Reveles
+</footer> -->
+
 </html>

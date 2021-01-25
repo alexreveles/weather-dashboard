@@ -1,15 +1,10 @@
 :root {
-    --primary: #fef9f9;
-     --secondary: #9caea9;
-    --tertiary: #788585;
-    --light-dark: #6f6866;
-    --dark: #121010;  
+    --primary: #faf9f9;
+    --secondary: #9caea9;
+    --dark: #282525;  
     
 }
 
-* {
-    box-sizing: border-box;
-}
 
 body {
 background-color: var(--primary);
@@ -17,10 +12,25 @@ background-color: var(--primary);
 
 h1 {
     text-align: center;
-    color:black;
+    color: var(--primary);
     font-weight: 700;
     margin: 0;
     line-height: 1.25;
     font-family: "IBM Plex Sans", sans-serif;
-    
+    padding: 0 10px;
+    background-color: var(--dark);
+    margin: 10px; 
+}
+
+h2 {
+    font-size: large;
+    margin: 10px;
+    margin-left: 15px;
+}
+
+.btn-search {
+height: 30px;
+background-color: royalblue;
+color: white;
+
 }

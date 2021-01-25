@@ -1,4 +1,4 @@
-# weather-dashboard
+# Weather Dashboard
 
 # A weather application to select your city and retrieve the weather data.
 
@@ -7,4 +7,4 @@
 * css
 * javascript
 
-[screenshot!]()
+[!screenshot]()
