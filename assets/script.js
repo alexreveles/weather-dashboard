@@ -1,12 +1,24 @@
+const cities = [];
+
 $(document).ready(function () {
   const API_KEY = "ac39cc409ece99f7dd30f822b9a7aab5";
   
   
   $("#save-city").on("click", function () {
     const searchCity = $("#searchCity").val();
+    cityHistory(searchCity);
     getCityWeather(searchCity);
     addLocalStorage(searchCity);
   });
+
+  function cityHistory(searchCity) {
+      let cityHistoryEl = document.querySelector('.listCities');
+      let cityEl = document.createElement('button');
+      cityEl.setAttribute('class', 'city-item');
+      cityEl.textContent = searchCity;
+      cityHistoryEl.append(cityEl);
+  } 
+
 
   function addLocalStorage(city){
     let searchHistory = JSON.parse(window.localStorage.getItem("searchHistory")) || [];
@@ -16,10 +28,29 @@ $(document).ready(function () {
         window.localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
       }
+      
+      console.log(city);
   }
 
-  // retrieve from local storage
+//   // retrieve from local storage
+//   let cityAdder = document.querySelector('.cityAdder');
+//   let listCities = document.querySelector('.listCities');
 
+//   cityAdder.addEventListener('submit', addCity);
+//   listCities.addEventListener('done', cityList );
+
+//   function addCity(e) {
+//       e.preventDefault();
+//       const textCity = this.querySelector('[name=cityItem]').value;
+//       addCity.push(textCity);
+//   }
+  
+//   function cityList() {
+//       console.log('done');
+//   }
+
+
+  ////////////////////////////////////////////////
 
   function getCityWeather(pizza) {
     fetch(
@@ -39,7 +70,7 @@ $(document).ready(function () {
         let currentWeatherEl = document.querySelector("#currentWeather");
         currentWeatherEl.innerHTML = "";
 
-        let heading = document.createElement("h2");
+        let heading = document.createElement("h3");
         heading.textContent = data.name;
         currentWeatherEl.appendChild(heading);
 
@@ -81,10 +112,13 @@ $(document).ready(function () {
             currentWeatherEl.appendChild(windSpeed);
             currentWeatherEl.appendChild(UVIndex);
 
-            // for loop for  5 day cast
+            ////////////////for loop for  5 day cast/////////////////////
           });
       });
   }
 
-  // storedCities.push(storedCities);
+  
 });
+
+// event listeners
+
