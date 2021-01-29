@@ -45,3 +45,8 @@ background-color: rgb(19, 68, 231);
 color: white;
 border-radius: 8px;
 }
+
+.city-item {
+    font-size: x-large;
+    display: block;
+}

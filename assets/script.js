@@ -1,5 +1,20 @@
 const cities = [];
 
+
+let currentDay = moment().format('MM/DD/YYYY');
+let tomorrow = moment().add(1, 'days').format('MM/DD/YYYY');
+let twoDays = moment().add(2, 'days').format('MM/DD/YYYY');
+let threeDays = moment().add(3, 'days').format('MM/DD/YYYY');
+let fourDays = moment().add(4, 'days').format('MM/DD/YYYY');
+let fiveDays = moment().add(5, 'days').format('MM/DD/YYYY');
+console.log(currentDay);
+
+
+
+
+
+const fiveDayForecast = document.querySelector('#fiveDayForecast');
+
 $(document).ready(function () {
   const API_KEY = "ac39cc409ece99f7dd30f822b9a7aab5";
   
@@ -9,7 +24,10 @@ $(document).ready(function () {
     cityHistory(searchCity);
     getCityWeather(searchCity);
     addLocalStorage(searchCity);
+    fiveDayCast(searchCity);
   });
+
+
 
   function cityHistory(searchCity) {
       let cityHistoryEl = document.querySelector('.listCities');
@@ -18,6 +36,8 @@ $(document).ready(function () {
       cityEl.textContent = searchCity;
       cityHistoryEl.append(cityEl);
   } 
+
+
 
 
   function addLocalStorage(city){
@@ -32,35 +52,19 @@ $(document).ready(function () {
       console.log(city);
   }
 
-//   // retrieve from local storage
-//   let cityAdder = document.querySelector('.cityAdder');
-//   let listCities = document.querySelector('.listCities');
-
-//   cityAdder.addEventListener('submit', addCity);
-//   listCities.addEventListener('done', cityList );
-
-//   function addCity(e) {
-//       e.preventDefault();
-//       const textCity = this.querySelector('[name=cityItem]').value;
-//       addCity.push(textCity);
-//   }
-  
-//   function cityList() {
-//       console.log('done');
-//   }
 
 
-  ////////////////////////////////////////////////
 
-  function getCityWeather(pizza) {
+
+  function getCityWeather(city) {
     fetch(
       "https://api.openweathermap.org/data/2.5/weather?q=" +
-        pizza +
+        city +
         "&appid=" +
         API_KEY +
         "&units=imperial"
     )
-      // also be typing heresdfgsdfgsdfgsdfg
+      
       .then(function (response) {
         return response.json();
       })
@@ -112,13 +116,46 @@ $(document).ready(function () {
             currentWeatherEl.appendChild(windSpeed);
             currentWeatherEl.appendChild(UVIndex);
 
-            ////////////////for loop for  5 day cast/////////////////////
+            ////////////////  5 day cast/////////////////////
           });
       });
   }
 
+  function fiveDayCast(city) {
+      fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + 
+      city + "&appid=" +
+      API_KEY +
+      "&units=imperial"
+      )
+
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+
+
+        
+
+        tomorrowdate = document.createElement('p');
+        tomorrowdate.textContent = tomorrow
+        fiveDayForecast.appendChild(tomorrowdate);
+
+        tomorrowtemp = document.createElement('p');
+        tomorrowtemp.textContent = data.list[4].main.temp
+        fiveDayForecast.appendChild(tomorrowtemp);
+
+        tomorrowHum = document.createElement('p');
+        tomorrowHum.textContent = data.list[4].main.humidity
+        fiveDayForecast.appendChild(tomorrowHum);
+
+
+    })
+  }
+
   
+
+
+      
+
 });
-
-// event listeners
-
