@@ -49,4 +49,5 @@ border-radius: 8px;
 .city-item {
     font-size: x-large;
     display: block;
+    margin-right: 10px;
 }

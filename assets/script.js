@@ -25,6 +25,7 @@ $(document).ready(function () {
     getCityWeather(searchCity);
     addLocalStorage(searchCity);
     fiveDayCast(searchCity);
+    $('#searchCity').val('');
   });
 
 
@@ -104,6 +105,11 @@ $(document).ready(function () {
               "http://openweathermap.org/img/wn/" +
                 data.current.weather[0].icon +
                 "@2x.png"
+
+
+                // conditional statement for uv index
+
+
             );
             temp.textContent = "Temperature: " + data.current.temp + " ºf";
             humid.textContent = "Humidity: " + data.current.humidity;
@@ -135,11 +141,17 @@ $(document).ready(function () {
         console.log(data);
 
 
-        
 
+        ////////cast for tomorrow weather//////////
         tomorrowdate = document.createElement('p');
-        tomorrowdate.textContent = tomorrow
+        tomorrowdate.textContent = tomorrow;
         fiveDayForecast.appendChild(tomorrowdate);
+        
+        tomorrowIcon = document.createElement('img');
+        tomorrowIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.list[4].weather[0].icon + '@2x.png' )
+        fiveDayForecast.appendChild(tomorrowIcon);
+
+
 
         tomorrowtemp = document.createElement('p');
         tomorrowtemp.textContent = data.list[4].main.temp
@@ -149,11 +161,34 @@ $(document).ready(function () {
         tomorrowHum.textContent = data.list[4].main.humidity
         fiveDayForecast.appendChild(tomorrowHum);
 
+        /// two days date 
+
+        twoDaysdate = document.createElement('p');
+        twoDaysdate.textContent = twoDays
+        fiveDayForecast.appendChild(twoDaysdate);
+
+        // icon twoDaysIcon
+
+
+        twoDaysTemp = document.createElement('p');
+        twoDaysTemp.textContent = data.list[11].main.temp
+        fiveDayForecast.appendChild(twoDaysTemp);
+
+        twoDaysHum = document.createElement('p');
+        twoDaysHum.textContent = data.list[11].main.humidity
+        fiveDayForecast.appendChild(twoDaysHum);
+
+
+
+        
+
+
+
 
     })
   }
 
-  
+                     
 
 
       
