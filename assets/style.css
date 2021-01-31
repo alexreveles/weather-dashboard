@@ -12,6 +12,9 @@ background-color: var(--primary);
 }
 
 
+
+
+
 h1 {
     text-align: center;
     color: var(--primary);
@@ -50,4 +53,8 @@ border-radius: 8px;
     font-size: x-large;
     display: block;
     margin-right: 10px;
+}
+
+#currentWeather {
+    background-color: red;
 }
