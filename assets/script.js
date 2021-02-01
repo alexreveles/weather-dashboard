@@ -108,6 +108,16 @@ $(document).ready(function () {
             // conditional statement for uv index
             let UVIndexNum = data.current.uvi;
             UVIndex.textContent = UVIndexNum;
+
+            if( UVIndexNum <= 5 ) {
+              UVIndex.classList.add('uv-low');
+
+            } else if ( UVIndexNum <= 7 ) {
+              UVIndex.classList.add('uv-med');
+
+            } else {
+              UVIndex.classList.add('uv-high');
+            }
             
 
 

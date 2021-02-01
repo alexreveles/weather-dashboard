@@ -41,15 +41,26 @@ h3 {
 }
 
  #save-city {
-    color:black;
-    background-color: rgba(242, 236, 236, 0.482);
+    color:white;
+    background-color: rgb(19, 68, 231);
     margin: 10px;
     display: inline-block;
  }
 
- button, .city-item {
+ button, .city-item:hover {
     margin: 1px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
  }
+
+
+ 
 
 
 
@@ -64,7 +75,6 @@ border-radius: 8px;
 .city-item {
     font-size: x-large;
     display: block;
-    margin-right: 10px;
     border: none;
 	padding: 1.1em 6.5em;
 	background: rgba(242, 236, 236, 0.482)c6;
@@ -72,6 +82,8 @@ border-radius: 8px;
 	font-family: 'TitilliumText22LRegular', Arial, sans-serif;
 	font-size: 1.1em;
     border-radius: 0px;
+    width: 300px;
+    white-space: nowrap;
     
 }
 
@@ -84,7 +96,21 @@ border-radius: 8px;
     background-color: rgba(242, 236, 236, 0.482);
 }
 
-.fa-fa-search {
-color: red;
-background-color: lime;
+
+.uv-low {
+background-color: green;
+color:white;
+display: inline;
+}
+
+.uv-med {
+background-color: yellow;
+color:white; 
+display: inline;
+}
+
+.uv-high {
+background-color: red;
+color:white; 
+display: inline;  
 }
