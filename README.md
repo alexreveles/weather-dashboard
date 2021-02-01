@@ -7,4 +7,4 @@
 * css
 * javascript
 
-(./assets/images/weather-app.png)
+![](./assets/images/weather-app.png)
