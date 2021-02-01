@@ -7,4 +7,8 @@
 * css
 * javascript
 
+# Deplyed link: https://alexreveles.github.io/weather-dashboard/
+
+# Github link: https://github.com/alexreveles/weather-dashboard
+
 ![](./assets/images/weather-app.png)
