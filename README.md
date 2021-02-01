@@ -5,10 +5,11 @@
 # Built with:
 * html
 * css
-* javascript
+* javascript/Jquery
+* Server side APIs
 
 ##### Deplyed link: https://alexreveles.github.io/weather-dashboard/
 
 ##### Github link: https://github.com/alexreveles/weather-dashboard
 
-![](./assets/images/weather-app.png)
+![](./assets/images/weather.png)
