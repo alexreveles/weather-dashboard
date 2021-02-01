@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const API_KEY = "ac39cc409ece99f7dd30f822b9a7aab5";
   let searchHistory = JSON.parse(window.localStorage.getItem("searchHistory")) || [];
-
+  let searchCity;
   let currentDay = moment().format("MM/DD/YYYY");
   console.log(currentDay);
 
@@ -9,7 +9,8 @@ $(document).ready(function () {
   cityHistory();
 
   $("#save-city").on("click", function () {
-    const searchCity = $("#searchCity").val();
+    console.log("here")
+    searchCity = $("#searchCity").val();
     getCityWeather(searchCity);
     addLocalStorage(searchCity);
     cityHistory(searchCity);
@@ -17,8 +18,8 @@ $(document).ready(function () {
     $("#searchCity").val("");
   });
 
-  $(".city-item").on("click", function (event) {
-    const searchCity = event.target.textContent;
+  $(".listCities").on("click", 'button', function (event) {
+    searchCity = $(this).attr('id');
     getCityWeather(searchCity);
     addLocalStorage(searchCity);
     cityHistory(searchCity);
@@ -34,6 +35,7 @@ $(document).ready(function () {
     for (let i = 0; i < searchHistory.length; i++) {
       let cityEl = document.createElement("button");
       cityEl.setAttribute("class", "city-item");
+      cityEl.setAttribute("id", searchHistory[i])
       cityEl.textContent = searchHistory[i];
       cityHistoryEl.append(cityEl);
     }
@@ -107,7 +109,7 @@ $(document).ready(function () {
             // conditional statement for uv index
 
 
-            
+
             todays.textContent = "Todays Date: " + currentDay;
             temp.textContent = "Temperature: " + data.current.temp + " ºf";
             humid.textContent = "Humidity: " + data.current.humidity;
@@ -142,11 +144,7 @@ $(document).ready(function () {
 
         fiveDayForecast.innerHTML = "";
 
-        ////////cast for tomorrow weather//////////
-
-        // tomorrowCol = document.createElement('div');
-        // tomorrowCol.addClass('col-md-2');
-        // fiveDayForecast.appendChild(tomorrowCol);
+       
 
         for (let i = 0; i < 40; i += 8) {
           let date = data.list[i].dt;
@@ -178,97 +176,7 @@ $(document).ready(function () {
           fiveDayForecast.appendChild(tomorrowdateContainer);
         }
 
-        /// two days
-
-        // twoDaysdate = document.createElement("p");
-        // twoDaysdate.textContent = twoDays;
-        // fiveDayForecast.appendChild(twoDaysdate);
-
-        // twoDaysIcon = document.createElement("img");
-        // twoDaysIcon.setAttribute(
-        //   "src",
-        //   "http://openweathermap.org/img/wn/" +
-        //     data.list[11].weather[0].icon +
-        //     "@2x.png"
-        // );
-        // fiveDayForecast.appendChild(twoDaysIcon);
-
-        // twoDaysTemp = document.createElement("p");
-        // twoDaysTemp.textContent = "Temperature: " + data.list[11].main.temp;
-        // fiveDayForecast.appendChild(twoDaysTemp);
-
-        // twoDaysHum = document.createElement("p");
-        // twoDaysHum.textContent = "Humidity: " + data.list[11].main.humidity;
-        // fiveDayForecast.appendChild(twoDaysHum);
-
-        // // three days
-
-        // threeDaysdate = document.createElement("p");
-        // threeDaysdate.textContent = threeDays;
-        // fiveDayForecast.appendChild(threeDaysdate);
-
-        // threeDaysIcon = document.createElement("img");
-        // threeDaysIcon.setAttribute(
-        //   "src",
-        //   "http://openweathermap.org/img/wn/" +
-        //     data.list[16].weather[0].icon +
-        //     "@2x.png"
-        // );
-        // fiveDayForecast.appendChild(threeDaysIcon);
-
-        // threeDaysTemp = document.createElement("p");
-        // threeDaysTemp.textContent = "Temperature: " + data.list[16].main.temp;
-        // fiveDayForecast.appendChild(threeDaysTemp);
-
-        // threeDaysHum = document.createElement("p");
-        // threeDaysHum.textContent = "Humidity: " + data.list[16].main.humidity;
-        // fiveDayForecast.appendChild(threeDaysHum);
-
-        // // four days
-
-        // fourDaysdate = document.createElement("p");
-        // fourDaysdate.textContent = fourDays;
-        // fiveDayForecast.appendChild(fourDaysdate);
-
-        // fourDaysIcon = document.createElement("img");
-        // fourDaysIcon.setAttribute(
-        //   "src",
-        //   "http://openweathermap.org/img/wn/" +
-        //     data.list[27].weather[0].icon +
-        //     "@2x.png"
-        // );
-        // fiveDayForecast.appendChild(fourDaysIcon);
-
-        // fourDaysTemp = document.createElement("p");
-        // fourDaysTemp.textContent = "Temperature: " + data.list[27].main.temp;
-        // fiveDayForecast.appendChild(fourDaysTemp);
-
-        // fourDaysHum = document.createElement("p");
-        // fourDaysHum.textContent = "Humidity: " + data.list[27].main.humidity;
-        // fiveDayForecast.appendChild(fourDaysHum);
-
-        // // five day
-
-        // fiveDaysdate = document.createElement("p");
-        // fiveDaysdate.textContent = fiveDays;
-        // fiveDayForecast.appendChild(fiveDaysdate);
-
-        // fiveDaysIcon = document.createElement("img");
-        // fiveDaysIcon.setAttribute(
-        //   "src",
-        //   "http://openweathermap.org/img/wn/" +
-        //     data.list[30].weather[0].icon +
-        //     "@2x.png"
-        // );
-        // fiveDayForecast.appendChild(fourDaysIcon);
-
-        // fiveDaysTemp = document.createElement("p");
-        // fiveDaysTemp.textContent = "Temperature: " + data.list[30].main.temp;
-        // fiveDayForecast.appendChild(fiveDaysTemp);
-
-        // fiveDaysHum = document.createElement("p");
-        // fiveDaysHum.textContent = "humidity: " + data.list[30].main.temp;
-        // fiveDayForecast.appendChild(fiveDaysHum);
+       
       });
   }
 });
