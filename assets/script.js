@@ -66,8 +66,7 @@ $(document).ready(function () {
         return response.json();
       })
       .then(function (data) {
-        // console.log(data);
-        // live share
+        
         let currentWeatherEl = document.querySelector("#currentWeather");
         currentWeatherEl.innerHTML = "";
 
@@ -107,6 +106,11 @@ $(document).ready(function () {
             );
 
             // conditional statement for uv index
+            let UVIndexNum = data.current.uvi;
+            UVIndex.textContent = UVIndexNum;
+            
+
+
 
 
 

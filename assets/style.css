@@ -40,21 +40,51 @@ h3 {
     background-color: lawngreen;
 }
 
+ #save-city {
+    color:black;
+    background-color: rgba(242, 236, 236, 0.482);
+    margin: 10px;
+    display: inline-block;
+ }
+
+ button, .city-item {
+    margin: 1px;
+ }
+
 
 
 .btn-search {
 height: 30px;
 background-color: rgb(19, 68, 231);
-color: white;
+color:white;
 border-radius: 8px;
+
 }
 
 .city-item {
     font-size: x-large;
     display: block;
     margin-right: 10px;
+    border: none;
+	padding: 1.1em 6.5em;
+	background: rgba(242, 236, 236, 0.482)c6;
+	color: black;
+	font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+	font-size: 1.1em;
+    border-radius: 0px;
+    
+}
+
+.col {
+    background-color:rgb(19, 68, 231);
+    margin: 5px;
 }
 
 #currentWeather {
-    background-color: red;
+    background-color: rgba(242, 236, 236, 0.482);
+}
+
+.fa-fa-search {
+color: red;
+background-color: lime;
 }
