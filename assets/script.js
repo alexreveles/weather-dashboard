@@ -178,7 +178,6 @@ $(document).ready(function () {
               "@2x.png"
           );
           tomorrowdateContainer.appendChild(tomorrowIcon);
-
           tomorrowtemp = document.createElement("p");
           tomorrowtemp.textContent = "Temperature: " + data.list[i].main.temp;
           tomorrowdateContainer.appendChild(tomorrowtemp);
